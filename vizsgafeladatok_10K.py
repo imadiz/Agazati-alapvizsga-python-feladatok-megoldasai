@@ -75,3 +75,34 @@ assert  faktorialis(0) == 1
 assert  faktorialis(1) == 1
 assert  faktorialis(2) == 1 * 2
 assert  faktorialis(5) == 1 * 2 * 3 * 4 * 5
+
+def karakterek_szama(fname):
+    f = open("lorem.txt", "r")
+    szoveg = f.read()
+    f.close()
+    return len(szoveg.strip())
+
+assert karakterek_szama("lorem.txt") == 18047
+
+def szavak_szama(fname):
+    f = open(fname, "r")#Fájl megnyitása
+    szoveg = f.read().strip()#Fájlban lévő szöveg beolvasása(f.read())
+    return len(szoveg.split())
+
+assert szavak_szama("lorem.txt") == 2304
+
+class Teglalap:   
+    def __init__(self, oldal1, oldal2):
+        self.oldal1 = oldal1
+        self.oldal2 = oldal2
+
+    def kerulet(self):
+        return self.oldal1 * 2 + self.oldal2 * 2
+    
+    def terulet(self):
+        return self.oldal1 * self.oldal2
+# Az assert csak hiba esetén ad visszajelzést.
+assert Teglalap(3, 4).oldal1 == 3
+assert Teglalap(3, 4).oldal2 == 4
+assert Teglalap(3, 4).kerulet() == 14
+assert Teglalap(3, 4).terulet() == 12
